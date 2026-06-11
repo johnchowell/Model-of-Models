@@ -399,7 +399,8 @@ should compose. They do.
   \item Emitted weight-space is approximately linear in the task latent $\Rightarrow$
         specialists compose algebraically; no in-context/MAML/PEARL baseline can
         interpolate task programs.
-  \item \todo{extend: arithmetic ($A{-}B{+}C$); generalization to unseen combinations.}
+  \item \emph{Future work:} weight arithmetic ($A-B+C$) and whether composed
+        specialists generalize to unseen task combinations.
 \end{itemize}
 \begin{figure}[h]\centering
 \fbox{\parbox{0.9\textwidth}{\centering\vspace{1.2cm}
@@ -499,11 +500,11 @@ peak training memory nearly flat in depth ($740$\,MB vs.\ backpropagation's $692
 at 24 layers, a $9.4\times$ reduction).
 
 A useful diagnostic emerged along the way: \emph{gradient predictability decays over
-training}. The cosine similarity between a layer's true and predictable gradient is
-$\approx0.99$ at initialization, $0.6$--$0.8$ at mid-training, and near zero at
-convergence---gradients become noise as the loss flattens. This bounds any
-synthetic-gradient method to the early, high-loss regime and explains why such methods
-help least exactly when one most wants a shortcut. The broader lesson---that
+training}. The cosine similarity between a layer's true and predicted gradient is
+$\approx0.99$ at initialization but drops sharply to roughly $0.2$--$0.5$ once the
+loss converges, as gradients grow noisier and less structured. This weakens any
+synthetic-gradient method in the late, low-loss regime and helps explain why such
+methods help least exactly when one most wants a shortcut. The broader lesson---that
 \emph{amortizing} a learned signal beats predicting a moving target---carried directly
 into the specialist-emission framing of the main paper. This appendix could stand as a
 short negative-results contribution on its own.
