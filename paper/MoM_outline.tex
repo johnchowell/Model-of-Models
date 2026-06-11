@@ -169,6 +169,12 @@ pretrained transformer that classifies tabular data in-context in one forward pa
 it is the strongest baseline for our few-shot tabular tasks, and we compare against
 it directly.
 
+\paragraph{Weight-space arithmetic.} Task arithmetic~\citep{ilharco2023task} shows
+that \emph{fine-tuned} weight deltas can be added and negated to compose model
+behaviors. Our composition result (\S\ref{sec:compose}) is the hypernetwork
+analogue: weights emitted in a single forward pass interpolate coherently, locating
+the linearity in the learned task-to-weight map itself.
+
 \paragraph{Decoupled training.} The appendix relates a negative result to synthetic
 gradients / DNI~\citep{jaderberg2017dni} and decoupled greedy local
 learning~\citep{nokland2019local,belilovsky2019greedy}.
@@ -394,7 +400,11 @@ should compose. They do.
         (22$\times$ below) --- coherent circle$\to$square morph (Fig.~\ref{fig:morph}).
   \item Emitted weight-space is approximately linear in the task latent $\Rightarrow$
         specialists compose algebraically; no in-context/MAML/PEARL baseline can
-        interpolate task programs.
+        interpolate task programs. The closest relative is task
+        arithmetic~\citep{ilharco2023task}, which composes \emph{fine-tuned} weight
+        deltas; here composition holds for weights produced in a single forward pass,
+        implying the \emph{hypernetwork itself} learns a near-linear task-to-weight
+        map rather than linearity emerging from separate optimization runs.
   \item \emph{Future work:} weight arithmetic ($A-B+C$) and whether composed
         specialists generalize to unseen task combinations.
 \end{itemize}
