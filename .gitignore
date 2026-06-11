@@ -1,0 +1,11 @@
+.venv/
+__pycache__/
+*.pyc
+data/*
+!data/README.md
+*.pt
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.bbl
+paper/*.blg

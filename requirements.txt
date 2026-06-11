@@ -1,0 +1,7 @@
+torch>=2.1
+numpy
+matplotlib
+pandas
+scikit-learn
+tabpfn==2.0.9
+gymnasium[mujoco]

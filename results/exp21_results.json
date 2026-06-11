@@ -1,0 +1,1 @@
+{"blood": {"auc": 0.967, "auc_std": 0.013, "bal_acc": 0.92, "ms_per_task": 601}, "gene": {"acc": 0.9907599999999999, "acc_std": 0.007524254115857674, "ms_per_task": 980.3024788550101, "note": "PCA->20 (TabPFN feat limit)"}}
